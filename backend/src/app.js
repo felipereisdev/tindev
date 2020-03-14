@@ -2,15 +2,19 @@ import 'dotenv/config';
 
 import express from 'express';
 import mongoose from 'mongoose';
+import socketIo from 'socket.io';
+import http from 'http';
 import cors from 'cors';
 
 import routes from './routes';
 
 class App {
   constructor() {
-    this.server = express();
+    this.app = express();
+    this.server = http.Server(this.app);
 
     this.database();
+    this.websocket();
     this.middlewares();
     this.routes();
   }
@@ -22,13 +26,21 @@ class App {
     });
   }
 
+  websocket() {
+    const io = socketIo(this.server);
+
+    io.on('connection', socket => {
+      console.log('Nova Conexão', socket.id);
+    });
+  }
+
   middlewares() {
-    this.server.use(cors());
-    this.server.use(express.json());
+    this.app.use(cors());
+    this.app.use(express.json());
   }
 
   routes() {
-    this.server.use(routes);
+    this.app.use(routes);
   }
 }
 
