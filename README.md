@@ -13,8 +13,8 @@
 </p>
 
 <div>
-  <img src="https://ibb.co/48HF901" alt="demo-web" height="425">
-  <img src="https://ibb.co/7r6qPXP" alt="demo-mobile" height="425">
+  <img src="https://i.ibb.co/0Cxn8zs/Screenshot-2020-03-15-at-19-10-46.png" alt="demo-web" height="425">
+  <img src="https://i.ibb.co/mhM3kGk/Screenshot-2020-03-15-at-19-10-58.png" alt="demo-mobile" height="425">
 </div>
 
 <hr />
@@ -50,9 +50,6 @@ This app features all the latest tools and practices in mobile development!
 
 1. Move yourself to the mobile folder: `cd mobile`
 2. Run `react-native run-ios` (or `run-android` if your prefer) to start the mobile app
-
-Note: If you choose to start the mobile app in the android emulator, you will have to start the emulator before using
-the `run-android` command.
 
 ## License
 
