@@ -29,8 +29,19 @@ class App {
   websocket() {
     const io = socketIo(this.server);
 
+    const connectedUsers = {};
+
     io.on('connection', socket => {
-      console.log('Nova Conexão', socket.id);
+      const { user } = socket.handshake.query;
+
+      connectedUsers[user] = socket.id;
+    });
+
+    this.app.use((req, res, next) => {
+      req.io = io;
+      req.connectedUsers = connectedUsers;
+
+      return next();
     });
   }
 
