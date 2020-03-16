@@ -32,7 +32,7 @@ export default function Main({ match }) {
   }, [loggedUserId]);
 
   useEffect(() => {
-    const socket = io('http://localhost:3333', {
+    const socket = io(process.env.REACT_APP_API_URL, {
       query: { user: loggedUserId },
     });
 
